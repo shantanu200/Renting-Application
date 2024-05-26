@@ -13,7 +13,6 @@ import {
 } from "../handler/Request";
 import { IJWtPayload } from "../middleware/auth";
 import { createToken } from "../utils/Token";
-import { emitWarning } from "process";
 
 export const createUserModel = async (c: Context) => {
   try {
@@ -61,6 +60,7 @@ export const loginUserModel = async (c: Context) => {
           email,
           accessToken: token,
           _id: userObj._id,
+          role: userObj?.type
         },
         message
       );

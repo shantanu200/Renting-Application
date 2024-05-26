@@ -3,7 +3,6 @@ import mongoose, { Document, Schema } from "mongoose";
 export interface IPropertyAttribute extends Document {
   area: number;
   place: string;
-  numberOfBedrooms: number;
   bedroom: number;
   bathroom: number;
   seller: mongoose.Schema.Types.ObjectId;
@@ -20,10 +19,7 @@ const propertyAttributeSchema = new Schema<IPropertyAttribute>(
       required: true,
       trim: true,
     },
-    numberOfBedrooms: {
-      type: Number,
-      required: true,
-    },
+    
     bedroom: {
       type: Number,
       required: true,

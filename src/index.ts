@@ -3,6 +3,7 @@ import { Hono } from "hono";
 import { config } from "dotenv";
 import { connectMongoDB } from "./config/db";
 import userRouter from "./routes/User.route";
+import propertyRouter from "./routes/Property.route";
 config();
 
 const app = new Hono();
@@ -12,6 +13,7 @@ app.get("/health", (c) => {
 });
 
 app.route("/user", userRouter);
+app.route("/property",propertyRouter)
 
 const port = 9000;
 
